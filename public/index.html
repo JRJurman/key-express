@@ -1,19 +1,17 @@
 <html>
+  <head>
+    <title>Key Express</title>
+  </head>
 
-<head>
-  <title>Key Express</title>
-</head>
+  <body>
+    <div id="listener" tabindex="0" style="width: 100%; height: 100%;"></div>
 
-<body>
-  <div id="listener" tabindex="0" style="width: 100%; height: 100%;"></div>
-
-  <script>
-    // on key press of listener, we need to make a request to the server...
-    document.getElementById('listener').addEventListener('keydown', (event) => {
-      console.log(event.keyCode)
-      fetch(`http://localhost:3000/key/${event.keyCode}`)
-    })
-  </script>
-</body>
-
+    <script>
+      // on key press of listener, we need to make a request to the server...
+      document.getElementById('listener').addEventListener('keydown', event => {
+        console.log(event.keyCode);
+        fetch(`http://localhost:3000/key/${event.keyCode}`);
+      });
+    </script>
+  </body>
 </html>
