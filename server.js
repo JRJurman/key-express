@@ -1,13 +1,15 @@
 const express = require('express');
 const ks = require('node-key-sender');
 const app = express();
-const port = 3000;
+const port = 2229;
+
+ks.setOption('globalDelayPressMillisec', 150);
 
 app.use(express.static('public'));
 
 app.get('/key/:code', (req, res) => {
-  console.log('key:', +req.params.code + 32);
-  ks.sendKey(String.fromCharCode(+req.params.code + 32));
+  console.log('key:', req.params.code);
+  ks.sendKey(req.params.code);
   res.send('ok');
 });
 
